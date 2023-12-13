@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import BaseCard from "./components/BaseCard";
 
 function App() {
+  const productData = [
+    {
+      price: "$100.00",
+      title: "Keyboard 2000",
+      text: "This is better than yamahas...",
+    },
+    {
+      price: "$1200.00",
+      title: "Vacuum 5000",
+      text: "This is better than dyson...",
+    },
+    {
+      price: "$49.99",
+      title: "Window Cleaner",
+      text: "Built with premium chemicals...",
+    },
+    {
+      price: "$129.99",
+      title: "Green Cleaner",
+      text: "Built with the most super premium chemicals...",
+    },
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {productData.map((product, idx) => (
+        <BaseCard
+          key={idx}
+          price={product.price}
+          title={product.title}
+          text={product.text}
+        />
+      ))}
     </div>
   );
 }
